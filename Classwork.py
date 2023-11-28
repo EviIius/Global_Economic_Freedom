@@ -10,7 +10,7 @@ df = pd.read_csv(url, sep=',')
 
 eco = pd.DataFrame(df)
 eco['Year'] = eco['Year'].astype('datetime64[ns]')
-eco['Year2'] = pd.to_datetime(eco['Month_of_Stop'], format='%y%m%d')
+eco['Year'] = pd.to_datetime(eco['Year'], format='%y%m%d')
 eco.info()
 
 
