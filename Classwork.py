@@ -5,7 +5,7 @@ import time
 
 st.set_page_config(layout='wide')
 
-url = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/Midterm%20Data.csv'
+url = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/economicdata2003-2021.csv'
 df = pd.read_csv(url, sep=',')
 
 
