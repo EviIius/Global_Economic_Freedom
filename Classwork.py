@@ -8,6 +8,11 @@ st.set_page_config(layout='wide')
 url = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/economicdata2003-2021.csv'
 df = pd.read_csv(url, sep=',')
 
+eco = pd.DataFrame(df)
+eco['Year'] = eco['Year'].astype('datetime64[ns]')
+eco['Year2'] = pd.to_datetime(eco['Month_of_Stop'], format='%y%m%d')
+eco.info()
+
 
 # df['Year'] = pd.to_datetime(df['Year']).dt.strftime('%Y')
 # print(df['Year'])
@@ -23,7 +28,7 @@ st.sidebar.success("WIP.")
 # else:
 #     st.stop()
 
-st.dataframe(df)
+st.dataframe(eco)
 
 
 # @st.cache_data()
