@@ -11,7 +11,6 @@ df = pd.read_csv(url, sep=',')
 
 # df['Year'] = pd.to_datetime(df['Year']).dt.strftime('%Y')
 # print(df['Year'])
-hvhj
 st.write("# Welcome to the example of my dataframe👋")
 st.header("# It so far isn't much but whatever")
 st.sidebar.success("WIP.")
