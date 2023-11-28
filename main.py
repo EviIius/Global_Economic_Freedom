@@ -11,8 +11,9 @@ url = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/economicdata
 df = pd.read_csv(url, sep=',')
 
 eco = pd.DataFrame(df)
-eco['Year'] = eco['Year'].astype('datetime64[ns]')
+# eco['Year'] = eco['Year'].astype('datetime64[ns]')
 eco['Year'] = pd.to_datetime(eco['Year'], format='%y%m%d')
+# eco['Year'] = eco['Year'].dt.year
 eco.info()
 
 
