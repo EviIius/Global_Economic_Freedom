@@ -14,17 +14,10 @@ df = pd.read_csv(url, sep=',')
 
 
 #Creating a new dataframe different from original data
-eco = pd.DataFrame(df)
-
-#Converting Year from int64 to datetime
-# eco['Year'] = eco['Year'].astype('datetime64[ns]') <-- This one seems to be the issue
-# eco['Year'] = pd.to_datetime(eco['Year'], format='%y%m%d')
-# eco['Year'] = eco['Year'].dt.year
+eco = df
+eco['Year'] = pd.to_datetime(eco['Year'],format='%Y', errors='coerce')
 eco.info()
 
-
-# df['Year'] = pd.to_datetime(df['Year']).dt.strftime('%Y')
-# print(df['Year'])
 
 #Format of page potentially
 st.write("# Welcome to the example of my dataframe👋")
@@ -48,6 +41,10 @@ word_count = st.sidebar.slider("Minimum count of words",min_value=5,max_value=10
 #     user_df = pd.read_csv(user_file)
 # else:
 #     st.stop()
+
+st.markdown('''
+            Hello
+            ''')
 
 #Displaying Dataframe
 st.dataframe(eco)

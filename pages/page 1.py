@@ -16,7 +16,8 @@ df = pd.read_csv(url, sep=',')
 
 
 #Creating a new dataframe different from original data
-eco = pd.DataFrame(df)
+eco = df
+eco['Year'] = pd.to_datetime(eco['Year'],format='%Y', errors='coerce')
 column_list = eco.columns.unique().tolist()
 
 selected_x_var = st.selectbox('What do you want the x variable to be?',
