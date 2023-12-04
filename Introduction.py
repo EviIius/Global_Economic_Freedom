@@ -3,11 +3,11 @@ import pandas as pd
 import streamlit as st
 import pandas as pd
 import altair as alt
-import time
 import matplotlib.pyplot as plt
 from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
+import folium as f
 
 #Page Configuration
 st.set_page_config(layout='wide')
@@ -20,6 +20,21 @@ df1 = pd.read_csv(url, sep=',')
 df2 = pd.read_csv(url2, sep=',')
 
 df = pd.merge(df1, df2, on='Countries', how='inner')
+
+#Caching
+@st.cache_data  # 👈 Add the caching decorator
+def load_data(url):
+    df = pd.read_csv(url)
+    return df
+
+df1 = load_data(url)
+
+@st.cache_data  # 👈 Add the caching decorator
+def load_data(url2):
+    df = pd.read_csv(url2)
+    return df
+
+df2 = load_data(url2)
 
 
 #Creating a new dataframe different from original data
@@ -58,6 +73,9 @@ st.markdown('''
 #Displaying Dataframe
 st.dataframe(df)
 
+#Rerun Button
+st.button("Rerun")
+
 #Display a Map
 
 # plt.scatter(x=eco['longitude'], y=eco['latitude'])
@@ -71,17 +89,4 @@ st.dataframe(df)
 # gdf.plot(ax=world.plot(figsize=(10, 6)), marker='o', color='red', markersize=15);
 # st.pyplot(gdf)
 
-st.map(data= eco, latitude='latitude', longitude='longitude')
-
-#Caching the data
-
-# @st.cache_data()
-# def load_file(user_file):
-#     time(5)
-#     if user_file is not None:
-#         df = pd.read_csv(user_file)
-#     else:
-#         df = pd.read_csv('Midterm Data.csv')
-#     return(df)
-
-# df=load_file(user_file)
+st.map(data= eco, latitude='latitude', longitude='longitude', color= '#FF0000', use_container_width=True, size= 100)

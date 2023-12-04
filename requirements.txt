@@ -2,4 +2,8 @@ pandas
 streamlit
 pandas
 altair
-time
+matplotlib
+shapely
+geopandas
+geopandas
+folium
