@@ -49,6 +49,16 @@ st.markdown('''
 #Displaying Dataframe
 st.dataframe(eco)
 
+#Display a Map
+scatter = alt.Chart(eco).mark_line().encode(
+    x='Year:O',
+    y='Rank:Q',
+).transform_filter(
+    alt.FieldRangePredicate(field='Year', range=[2003, 2005])
+)
+
+st.altair_chart(scatter, use_container_width=True)
+
 #Caching the data
 
 # @st.cache_data()
