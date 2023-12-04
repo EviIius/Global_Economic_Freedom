@@ -4,13 +4,22 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import time
+import matplotlib.pyplot as plt
+from shapely.geometry import Point
+import geopandas as gpd
+from geopandas import GeoDataFrame
 
 #Page Configuration
 st.set_page_config(layout='wide')
 
 #Data Reading and URL Linkage to repository
 url = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/economicdata2003-2021.csv'
-df = pd.read_csv(url, sep=',')
+url2 = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/countries.csv'
+
+df1 = pd.read_csv(url, sep=',')
+df2 = pd.read_csv(url2, sep=',')
+
+df = pd.merge(df1, df2, on='Countries', how='inner')
 
 
 #Creating a new dataframe different from original data
@@ -47,17 +56,22 @@ st.markdown('''
             ''')
 
 #Displaying Dataframe
-st.dataframe(eco)
+st.dataframe(df)
 
 #Display a Map
-scatter = alt.Chart(eco).mark_line().encode(
-    x='Year:O',
-    y='Rank:Q',
-).transform_filter(
-    alt.FieldRangePredicate(field='Year', range=[2003, 2005])
-)
 
-st.altair_chart(scatter, use_container_width=True)
+# plt.scatter(x=eco['longitude'], y=eco['latitude'])
+# plt.show()
+
+# geometry = [Point(xy) for xy in zip(eco['longitude'], eco['latitude'])]
+# gdf = GeoDataFrame(eco, geometry=geometry)   
+
+# #this is a simple map that goes with geopandas
+# world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+# gdf.plot(ax=world.plot(figsize=(10, 6)), marker='o', color='red', markersize=15);
+# st.pyplot(gdf)
+
+st.map(data= eco, latitude='latitude', longitude='longitude')
 
 #Caching the data
 
