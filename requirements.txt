@@ -7,3 +7,4 @@ shapely
 geopandas
 geopandas
 folium
+vega_datasets
