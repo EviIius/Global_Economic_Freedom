@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 import pandas as pd
 import altair as alt
+from altair import datum
 import matplotlib.pyplot as plt
 from shapely.geometry import Point
 import geopandas as gpd
@@ -16,11 +17,15 @@ st.set_page_config(layout='wide')
 #Data Reading and URL Linkage to repository
 url = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/economicdata2003-2021.csv'
 url2 = 'https://raw.githubusercontent.com/EviIius/TableauFinalP/main/countries.csv'
+url3 = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/Countries%20by%20category.csv'
 
 df1 = pd.read_csv(url, sep=',')
 df2 = pd.read_csv(url2, sep=',')
+df3 = pd.read_csv(url3, sep=',')
 
-df = pd.merge(df1, df2, on='Countries', how='inner')
+merge1 = pd.merge(df1, df2, on='Countries', how='inner')
+df = pd.merge(merge1, df3, on='Countries', how='inner')
+
 
 #Caching
 @st.cache_data  # 👈 Add the caching decorator
@@ -37,6 +42,13 @@ def load_data(url2):
 
 df2 = load_data(url2)
 
+@st.cache_data  # 👈 Add the caching decorator
+def load_data(url3):
+    df = pd.read_csv(url3)
+    return df
+
+df3 = load_data(url3)
+
 
 #Creating a new dataframe different from original data
 eco = df
@@ -45,18 +57,15 @@ eco.info()
 
 
 #Format of page potentially
-st.write("# Welcome to the example of my dataframe👋")
+st.write("# Global Economic Freedom")
 st.header("# It so far isn't much but whatever")
 
 #Optional Sidebar Just testing
-st.sidebar.header('Word Cloud Settings')
-max_word = st.sidebar.slider("Max Words",min_value=10,max_value=200,value=100, step=10)
-max_font = st.sidebar.slider("Size of largest Word",min_value=50,max_value=350,value=60, step=10)
-img_width = st.sidebar.slider("Image Width",min_value=100,max_value=800,value=600, step=10)
-random = st.sidebar.slider("Random State", min_value=30,max_value=100,value=20)
-remove_stop_words = st.sidebar.checkbox("Remove Stop Words?",value=True)
-st.sidebar.header('Word Count Settings')
-word_count = st.sidebar.slider("Minimum count of words",min_value=5,max_value=100,value=40, step=1)
+
+regions = st.sidebar.multiselect("Country Category", eco['Country (group)'].unique())
+
+if regions:
+    eco = eco[eco['Country (group)'].isin(regions)]
 
 #Optional file uploader
 # user_file = st.file_uploader(
@@ -81,16 +90,26 @@ st.button("Rerun")
 
 countries = alt.topo_feature(data.world_110m.url, 'countries')
 
-map = alt.Chart(eco).mark_geoshape().encode(
+background = alt.Chart(countries).mark_geoshape(
+    fill='lightgray',
+    stroke='white',
+    tooltip='Countries'
+).project(
+    "equirectangular"
+).properties(
+    width=800,
+    height=800
+).interactive()
+
+points = alt.Chart(eco).mark_circle().encode(
     longitude='longitude:Q',
     latitude='latitude:Q',
     size=alt.value(50),
-).project(
-    "albersUsa"
-).properties(
-    width=500,
-    height=400
-)
+    color= 'Country (group)',
+    tooltip='ISO Code'
+).interactive()
+
+map = background + points
 
 st.altair_chart(map, use_container_width=True)
 
