@@ -8,6 +8,7 @@ from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
 import folium as f
+from vega_datasets import data
 
 #Page Configuration
 st.set_page_config(layout='wide')
@@ -71,22 +72,26 @@ st.markdown('''
             ''')
 
 #Displaying Dataframe
-st.dataframe(df)
+st.dataframe(eco)
 
 #Rerun Button
 st.button("Rerun")
 
 #Display a Map
 
-# plt.scatter(x=eco['longitude'], y=eco['latitude'])
-# plt.show()
+countries = alt.topo_feature(data.world_110m.url, 'countries')
 
-# geometry = [Point(xy) for xy in zip(eco['longitude'], eco['latitude'])]
-# gdf = GeoDataFrame(eco, geometry=geometry)   
+map = alt.Chart(eco).mark_geoshape().encode(
+    longitude='longitude:Q',
+    latitude='latitude:Q',
+    size=alt.value(50),
+).project(
+    "albersUsa"
+).properties(
+    width=500,
+    height=400
+)
 
-# #this is a simple map that goes with geopandas
-# world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-# gdf.plot(ax=world.plot(figsize=(10, 6)), marker='o', color='red', markersize=15);
-# st.pyplot(gdf)
+st.altair_chart(map, use_container_width=True)
 
-st.map(data= eco, latitude='latitude', longitude='longitude', color= '#FF0000', use_container_width=True, size= 100)
+# st.map(data= eco, latitude='latitude', longitude='longitude', color= '#FF0000', use_container_width=True, size= 100)
