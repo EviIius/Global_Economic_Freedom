@@ -11,8 +11,9 @@ from geopandas import GeoDataFrame
 import folium as f
 from vega_datasets import data
 
-#Page Configuration
 st.set_page_config(layout='wide')
+st.title("Global Economic Freedom")
+st.header("# It so far isn't much but whatever")
 
 #Data Reading and URL Linkage to repository
 url = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/economicdata2003-2021.csv'
@@ -54,63 +55,25 @@ df3 = load_data(url3)
 eco = df
 eco['Year'] = pd.to_datetime(eco['Year'],format='%Y', errors='coerce')
 eco.info()
+column_list = eco.columns.unique().tolist()
 
-
-#Format of page potentially
-st.write("# Global Economic Freedom")
-
-#Optional Sidebar Just testing
-
-regions = st.sidebar.multiselect("Country Category", eco['Country (group)'].unique())
+#Country Region Filter
+regions = st.multiselect("Country Category", eco['Country (group)'].unique())
 
 if regions:
     eco = eco[eco['Country (group)'].isin(regions)]
 
-#Optional file uploader
-# user_file = st.file_uploader(
-#     'Select Your Local User CSV (default provided)')
 
-# if user_file is not None:
-#     user_df = pd.read_csv(user_file)
-# else:
-#     st.stop()
+#Options for the Select box
+selected_x_var = st.selectbox('Please Select your X variable:',
+column_list, index=0, placeholder="Choose an option")
+selected_y_var = st.selectbox('Please Select your Y variable:', column_list, index=0, placeholder="Choose an option")
 
-st.markdown('''
-            Hello
-            ''')
+scatter = alt.Chart(eco).mark_circle().encode(
+    alt.X(selected_x_var).scale(zero=False),
+    alt.Y(selected_y_var).scale(zero=False, padding=1),
+    # color='species',
+    # size='petalWidth'
+)
 
-#Displaying Dataframe
-st.header("A dataframe containing the primary information of the all the countries different metrics along with latitude and longitude")
-st.dataframe(eco)
-
-#Rerun Button
-st.button("Rerun")
-
-#Display a Map
-st.header("Interactable map that can show you country groupings")
-countries = alt.topo_feature(data.world_110m.url, 'countries')
-
-background = alt.Chart(countries).mark_geoshape(
-    fill='lightgray',
-    stroke='white',
-    tooltip='Countries'
-).project(
-    "equirectangular"
-).properties(
-    width=800,
-    height=800
-).interactive()
-
-points = alt.Chart(eco).mark_circle().encode(
-    longitude='longitude:Q',
-    latitude='latitude:Q',
-    size=alt.value(50),
-    color= 'Country (group)',
-    tooltip='ISO Code'
-).interactive()
-
-map = background + points
-
-st.altair_chart(map, use_container_width=True)
-
-# st.map(data= eco, latitude='latitude', longitude='longitude', color= '#FF0000', use_container_width=True, size= 100)
+st.altair_chart(scatter, use_container_width=True)
