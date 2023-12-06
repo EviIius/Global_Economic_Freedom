@@ -9,7 +9,7 @@ from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
 import folium as f
-from vega_datasets import data
+# from vega_datasets import data
 
 st.set_page_config(layout='wide')
 st.title("Global Economic Freedom")

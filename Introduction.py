@@ -9,7 +9,7 @@ from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
 import folium as f
-from vega_datasets import data
+# from vega_datasets import data
 
 #Page Configuration
 st.set_page_config(layout='wide')
@@ -56,6 +56,7 @@ eco['Year'] = pd.to_datetime(eco['Year'],format='%Y', errors='coerce')
 eco.info()
 
 
+
 #Format of page potentially
 st.write("# Global Economic Freedom")
 
@@ -87,8 +88,10 @@ st.dataframe(eco)
 st.button("Rerun")
 
 #Display a Map
+map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
+
 st.header("Interactable map that can show you country groupings")
-countries = alt.topo_feature(data.world_110m.url, 'countries')
+countries = alt.topo_feature(map_data, 'countries')
 
 background = alt.Chart(countries).mark_geoshape(
     fill='lightgray',
