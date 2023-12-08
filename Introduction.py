@@ -60,12 +60,21 @@ eco.info()
 #Format of page potentially
 st.write("# Global Economic Freedom")
 
-#Optional Sidebar Just testing
+#Sidebar
+st.sidebar.write("Here are some functions that wuill help make it easier to visualize the data on an individual level.")
+#Country Group Filter
 
 regions = st.sidebar.multiselect("Country Category", eco['Country (group)'].unique())
 
 if regions:
     eco = eco[eco['Country (group)'].isin(regions)]
+
+
+#Individual Country Filter
+indvidual_country = st.sidebar.multiselect("Specific Country", eco['Countries'].unique())
+
+if indvidual_country:
+    eco = eco[eco['Countries'].isin(indvidual_country)]
 
 #Optional file uploader
 # user_file = st.file_uploader(
@@ -94,7 +103,7 @@ st.header("Interactable map that can show you country groupings")
 countries = alt.topo_feature(map_data, 'countries')
 
 background = alt.Chart(countries).mark_geoshape(
-    fill='lightgray',
+    fill='#CBC3E3',
     stroke='white',
     tooltip='Countries'
 ).project(

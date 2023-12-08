@@ -63,6 +63,12 @@ regions = st.multiselect("Country Category", eco['Country (group)'].unique())
 if regions:
     eco = eco[eco['Country (group)'].isin(regions)]
 
+#Individual Country Filter
+indvidual_country = st.multiselect("Specific Country", eco['Countries'].unique())
+
+if indvidual_country:
+    eco = eco[eco['Countries'].isin(indvidual_country)]
+
 
 #Options for the Select box
 selected_x_var = st.selectbox('Please Select your X variable:',
@@ -77,3 +83,51 @@ scatter = alt.Chart(eco).mark_circle().encode(
 )
 
 st.altair_chart(scatter, use_container_width=True)
+
+
+gradient = alt.Chart(eco).mark_area(
+    line={'color':'darkgreen'},
+    color=alt.Gradient(
+        gradient='linear',
+        stops=[alt.GradientStop(color='white', offset=0),
+               alt.GradientStop(color='darkgreen', offset=1)],
+        x1=1,
+        x2=1,
+        y1=1,
+        y2=0
+    )
+).encode(
+    alt.X('Year:T'),
+    alt.Y('Economic Freedom Summary Index:Q')
+)
+
+st.altair_chart(gradient, use_container_width=True)
+
+#Display a Map
+map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
+
+st.header("Interactable map that can show you country groupings")
+countries = alt.topo_feature(map_data, 'countries')
+
+background = alt.Chart(countries).mark_geoshape(
+    fill='lightgray',
+    stroke='white',
+    tooltip='Countries'
+).project(
+    "equirectangular"
+).properties(
+    width=800,
+    height=800
+).interactive()
+
+points = alt.Chart(eco).mark_circle().encode(
+    longitude='longitude:Q',
+    latitude='latitude:Q',
+    size=alt.value(50),
+    color= 'Country (group)',
+    tooltip='ISO Code'
+).interactive()
+
+map = background + points
+
+st.altair_chart(map, use_container_width=True)
