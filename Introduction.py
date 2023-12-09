@@ -15,9 +15,9 @@ import folium as f
 st.set_page_config(layout='wide')
 
 #Data Reading and URL Linkage to repository
-url = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/economicdata2003-2021.csv'
-url2 = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/countries.csv'
-url3 = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/Countries%20by%20category.csv'
+url = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/datacsvs/economicdata2003-2021.csv'
+url2 = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/datacsvs/countries.csv'
+url3 = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/datacsvs/Countries%20by%20category.csv'
 
 df1 = pd.read_csv(url, sep=',')
 df2 = pd.read_csv(url2, sep=',')
