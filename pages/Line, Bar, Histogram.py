@@ -64,6 +64,13 @@ if regions:
     eco = eco[eco['Country (group)'].isin(regions)]
 
 
+#Individual Country Filter
+indvidual_country = st.multiselect("Specific Country", eco['Countries'].unique())
+
+if indvidual_country:
+    eco = eco[eco['Countries'].isin(indvidual_country)]
+
+
 #Options for the Select box
 selected_x_var = st.selectbox('Please Select your X variable:',
 column_list, index=0, placeholder="Choose an option")
