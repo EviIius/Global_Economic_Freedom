@@ -86,7 +86,7 @@ if indvidual_country:
 #     st.stop()
 
 st.markdown('''
-            Hello daniel-kun :)
+            Hello joey-kun :)
             ''')
 
 #Displaying Dataframe
