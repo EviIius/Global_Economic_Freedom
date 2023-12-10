@@ -90,9 +90,15 @@ with tab1:
     st.altair_chart(alt_chart, use_container_width=True)
 
 with tab2:
+
+    if regions == eco['Country (group)']:
+        regions
+    elif indvidual_country == eco['Countries']:
+        indvidual_country
+
     st.write("hello")
     alt_chart = (
-        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var} by {regions}").mark_bar().encode(
+        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var} by {'regions' if regions == eco['Country (group)'] else 'indvidual_country'}").mark_bar().encode(
             x=selected_x_var,
         y=selected_y_var,
         )
