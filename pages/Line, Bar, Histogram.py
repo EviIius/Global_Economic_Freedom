@@ -81,7 +81,7 @@ tab1,tab2,tab3 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart'])
 with tab1:
     st.write("hello")
     alt_chart = (
-        alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var} by {regions}").mark_line().encode(
+        alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var}").mark_line().encode(
             x=selected_x_var,
         y=selected_y_var,
         )
@@ -91,14 +91,9 @@ with tab1:
 
 with tab2:
 
-    if regions == eco['Country (group)']:
-        regions
-    elif indvidual_country == eco['Countries']:
-        indvidual_country
-
     st.write("hello")
     alt_chart = (
-        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var} by {'regions' if regions == eco['Country (group)'] else 'indvidual_country'}").mark_bar().encode(
+        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var}").mark_bar().encode(
             x=selected_x_var,
         y=selected_y_var,
         )
@@ -109,7 +104,7 @@ with tab2:
 with tab3:
     st.write("hello")
     alt_chart = (
-        alt.Chart(eco, title=f"Histogram of {selected_x_var} and the count of each value by {regions}").mark_bar(color='#ff0000').encode(
+        alt.Chart(eco, title=f"Histogram of {selected_x_var} and the count of each value").mark_bar(color='#ff0000').encode(
             x=selected_x_var,
         y='count()'
         )
