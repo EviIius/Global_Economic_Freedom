@@ -125,4 +125,4 @@ st.altair_chart(map, use_container_width=True)
 # st.map(data= eco, latitude='latitude', longitude='longitude', color= '#FF0000', use_container_width=True, size= 100)
 
 #Rerun Button
-st.button("Rerun")
+st.sidebar.button("Rerun")
