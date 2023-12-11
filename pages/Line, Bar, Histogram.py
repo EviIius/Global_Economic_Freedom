@@ -13,7 +13,8 @@ import folium as f
 
 st.set_page_config(layout='wide')
 st.title("Global Economic Freedom")
-st.header("# It so far isn't much but whatever")
+st.subheader("There are many other variables in the data so here is a page for you to explore specific ones yourself")
+st.write("Please select two variables for or any filters that you would like to look at:")
 
 #Data Reading and URL Linkage to repository
 url = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/datacsvs/economicdata2003-2021.csv'
@@ -81,7 +82,7 @@ tab1,tab2,tab3 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart'])
 with tab1:
     st.write("hello")
     alt_chart = (
-        alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var}").mark_line().encode(
+        alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var}").mark_line(color='#ff0000').encode(
             x=selected_x_var,
         y=selected_y_var,
         )
@@ -93,7 +94,7 @@ with tab2:
 
     st.write("hello")
     alt_chart = (
-        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var}").mark_bar().encode(
+        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var}").mark_bar(color='#ff0000').encode(
             x=selected_x_var,
         y=selected_y_var,
         )
@@ -111,3 +112,37 @@ with tab3:
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
+
+
+#Display a Map
+map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
+
+countries = alt.topo_feature(map_data, 'countries')
+
+background = alt.Chart(countries).mark_geoshape(
+    fill='#CBC3E3',
+    stroke='white',
+    tooltip='Countries'
+).project(
+    "equirectangular"
+).properties(
+    width=800,
+    height=800
+).interactive()
+
+points = alt.Chart(eco).mark_circle().encode(
+    longitude='longitude:Q',
+    latitude='latitude:Q',
+    size=alt.value(50),
+    color= 'Country (group)',
+    tooltip='ISO Code'
+).interactive()
+
+map = background + points
+
+st.altair_chart(map, use_container_width=True)
+
+
+#Rerun Button
+st.sidebar.write("If any issues occur, please click the rerun button.")
+st.sidebar.button("Rerun")

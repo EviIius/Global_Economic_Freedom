@@ -93,9 +93,6 @@ st.markdown('''
 st.header("A dataframe containing the primary information of the all the countries different metrics along with latitude and longitude")
 st.dataframe(eco)
 
-#Rerun Button
-st.button("Rerun")
-
 #Display a Map
 map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
 
@@ -126,3 +123,6 @@ map = background + points
 st.altair_chart(map, use_container_width=True)
 
 # st.map(data= eco, latitude='latitude', longitude='longitude', color= '#FF0000', use_container_width=True, size= 100)
+
+#Rerun Button
+st.button("Rerun")
