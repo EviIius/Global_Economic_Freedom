@@ -146,7 +146,7 @@ with tab3:
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
-    st.subheader("Size of Government and Military interference in rule of law and politics")
+    st.subheader("Military interference in rule of law and politics")
     alt_chart = (
         alt.Chart(eco).mark_bar(color='#ff0000').encode(
             x= 'Military interference in rule of law and politics',
@@ -175,7 +175,7 @@ with tab4:
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
-    st.subheader("Military interference in rule of law and politics")
+    st.subheader("Size of Government and Military interference in rule of law and politics")
     alt_chart = (
         alt.Chart(eco).mark_circle(color='#ff0000').encode(
             x= 'Size of Government',
