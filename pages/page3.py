@@ -77,42 +77,33 @@ selected_x_var = st.selectbox('Please Select your X variable:',
 column_list, index=0, placeholder="Choose an option")
 selected_y_var = st.selectbox('Please Select your Y variable:', column_list, index=0, placeholder="Choose an option")
 
-tab1,tab2,tab3 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart'])
+tab1,tab2,tab3,tab4 = st.tabs(['Gradient Chart','Pie Chart', 'Histogram Chart', 'Scatter Chart'])
 
 with tab1:
     st.write("hello")
-    alt_chart = (
-        alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var}").mark_line(color='#ff0000').encode(
-            x=selected_x_var,
-        y=selected_y_var,
-        )
-        .interactive()
-        )
-    st.altair_chart(alt_chart, use_container_width=True)
+    gradient = alt.Chart(eco).mark_area(
+    line={'color':'#ff0000'},
+    color=alt.Gradient(
+        gradient='linear',
+        stops=[alt.GradientStop(color='white', offset=0),
+               alt.GradientStop(color='darkgreen', offset=1)],
+        x1=1,
+        x2=1,
+        y1=1,
+        y2=0
+    )
+).encode(
+    alt.X(selected_x_var),
+    alt.Y(selected_y_var)
+)
+    st.altair_chart(gradient, use_container_width=True)
 
 with tab2:
-
-    st.write("hello")
-    alt_chart = (
-        alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var}").mark_bar(color='#ff0000').encode(
-            x=selected_x_var,
-        y=selected_y_var,
-        )
-        .interactive()
-        )
-    st.altair_chart(alt_chart, use_container_width=True)
-
-with tab3:
-    st.write("hello")
-    alt_chart = (
-        alt.Chart(eco, title=f"Histogram of {selected_x_var} and the count of each value").mark_bar(color='#ff0000').encode(
-            x=selected_x_var,
-        y='count()'
-        )
-        .interactive()
-        )
-    st.altair_chart(alt_chart, use_container_width=True)
-
+    sort = alt.Chart(eco).mark_bar(color='#ff0000').encode(
+    x= selected_x_var,
+    y=alt.Y(selected_y_var).sort('-x')
+)
+    st.altair_chart(sort, use_container_width=True)
 
 #Display a Map
 map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'

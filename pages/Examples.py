@@ -196,25 +196,6 @@ with tab4:
     st.altair_chart(alt_chart, use_container_width=True)
 
 
-
-# gradient = alt.Chart(eco).mark_area(
-#     line={'color':'darkgreen'},
-#     color=alt.Gradient(
-#         gradient='linear',
-#         stops=[alt.GradientStop(color='white', offset=0),
-#                alt.GradientStop(color='darkgreen', offset=1)],
-#         x1=1,
-#         x2=1,
-#         y1=1,
-#         y2=0
-#     )
-# ).encode(
-#     alt.X('Year:T'),
-#     alt.Y('Economic Freedom Summary Index:Q')
-# )
-
-# st.altair_chart(gradient, use_container_width=True)
-
 #Display a Map
 # map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
 # countries = alt.topo_feature(map_data, 'countries')
