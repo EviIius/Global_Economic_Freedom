@@ -82,11 +82,11 @@ tab1,tab2,tab3,tab4 = st.tabs(['Gradient Chart','Pie Chart', 'Histogram Chart', 
 with tab1:
     st.write("hello")
     gradient = alt.Chart(eco).mark_area(
-    line={'color':'#ff0000'},
+    line={'color':'white'},
     color=alt.Gradient(
         gradient='linear',
         stops=[alt.GradientStop(color='white', offset=0),
-               alt.GradientStop(color='darkgreen', offset=1)],
+               alt.GradientStop(color='#ff0000', offset=1)],
         x1=1,
         x2=1,
         y1=1,
