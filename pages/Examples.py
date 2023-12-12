@@ -76,7 +76,8 @@ if indvidual_country:
 tab1,tab2,tab3,tab4 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart', 'Scatter Chart'])
 
 with tab1:
-    st.write("Here are some example line charts that will show some of the best points of the data:")
+    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
+             "On a large level, you can see the fluctuations for most countries but")
     st.subheader("Economic Freedom Summary Index and Year")
     alt_chart = (
         alt.Chart(eco).mark_line(color='#ff0000').encode(
