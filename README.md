@@ -1,4 +1,5 @@
 # Global Economic Freedom
+### Authors: Jake Brulato
 
 ## Background Information
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Fraser_Institute_logo.svg/1200px-Fraser_Institute_logo.svg.png" alt="drawing" width="200" height = "200"/>
@@ -10,7 +11,7 @@ The final version of the app will always be  up on Streamlit for anyones viewing
 [Global Economic Freedom] (https://global-economic-freedom.streamlit.app/ 'Global Economic Freedom')
 
 
-## For the people who want to run it on their own
+## For the people who want to run it on their own: Fork the repository
 
 ## Create the virtual enviorment for the files
 ```
@@ -31,5 +32,6 @@ from geopandas import GeoDataFrame
 import folium as f
 ```
 
-##
+## Download the Introduction file
+
 
