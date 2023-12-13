@@ -65,7 +65,7 @@ streamlit run Introduction.py
 
 
 ## Further Information About Economic Freedom
-[Economic Freedom: Toward a Theory of Measurement](https://books.google.com/books?id=T-lAnvB8r9QC&printsec=frontcover#v=onepage&q&f=false)
-[The concept and measurement of economic freedom](https://www.sciencedirect.com/science/article/pii/S0176268003000077?casa_token=z8NnHG3SHIMAAAAA:HfISf-LCoX4qlLCDTxVvENVC2tQkBNK-Z2ViPruSWG59SpInxU1Q1hMP_JM0TVVKZduvXpv8qIQ)
-***An Older Version***
+- [Economic Freedom: Toward a Theory of Measurement](https://books.google.com/books?id=T-lAnvB8r9QC&printsec=frontcover#v=onepage&q&f=false)
+- [The concept and measurement of economic freedom](https://www.sciencedirect.com/science/article/pii/S0176268003000077?casa_token=z8NnHG3SHIMAAAAA:HfISf-LCoX4qlLCDTxVvENVC2tQkBNK-Z2ViPruSWG59SpInxU1Q1hMP_JM0TVVKZduvXpv8qIQ)
+- ***An Older Version***
 [Economic Freedom of the World](https://books.google.com/books?hl=en&lr=&id=79ut_adIb8oC&oi=fnd&pg=PR4&dq=Economic+Freedom+of+the+World&ots=rzoG22CXbK&sig=fSGhG4PRhry8vTisGSzuDyZcUZU#v=onepage&q=Economic%20Freedom%20of%20the%20World&f=false) 
