@@ -13,8 +13,8 @@ import folium as f
 
 st.set_page_config(layout='wide')
 st.title("Global Economic Freedom")
-st.subheader("Here I have selected variables that I think would be best to showcase overall in our data" +
-             "this includes potenial reasons for the Economic Freedom Summary Index being vastly different for most countries.")
+st.subheader("Here are some variables I have selected that would best suit the data, each with their own description " +
+             "in the four main types of charts I will be focusing on.")
 
 #Data Reading and URL Linkage to repository
 url = 'https://raw.githubusercontent.com/EviIius/Global_Economic_Freedom/main/datacsvs/economicdata2003-2021.csv'
@@ -73,15 +73,15 @@ if indvidual_country:
     eco = eco[eco['Countries'].isin(indvidual_country)]
 
 
-tab1,tab2,tab3,tab4 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart', 'Scatter Chart'])
+tab1,tab2,tab3,tab4 = st.tabs(['Bar Chart','Line Chart', 'Histogram Chart', 'Scatter Chart'])
 
 with tab1:
-    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
-             " On a large level, you can see the fluctuations for most countries but an indiviual level will showcase the overall freedom for countries, "+
-             "especially for middle eastern countries.")
+    st.write('Here we have a summary index of the Economic Freedom over time to get a general idea of how a country\'s economic freedom has progressed.'
+    + " Filtering this either by Country group or Individually will show the skewness or dips in specific years on the bars.")
+             
     st.subheader("Economic Freedom Summary Index and Year")
     alt_chart = (
-        alt.Chart(eco).mark_line(color='#ff0000').encode(
+        alt.Chart(eco).mark_bar(color='#ff0000').encode(
             x= 'Year:T',
             y= 'Economic Freedom Summary Index',
         )
@@ -89,26 +89,26 @@ with tab1:
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
-    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
-             " On a large level, you can see the fluctuations for most countries but an indiviual level will showcase the overall freedom for countries, "+
-             "especially for middle eastern countries.")
-    
+    st.write('The size of the government and its Military\'s involvement could potentially decrease a country\'s economic freedom.'
+             + ' Displayed is the overall skewness with noticable outliers on a large scale. Some countries possibly gain and lose economic freedom ' +
+             'as the size of the government increases.')
+
     st.subheader("Size of Government and Military interference in rule of law and politics")
     alt_chart = (
-        alt.Chart(eco).mark_line(color='#ff0000').encode(
-            x= 'Size of Government',
-            y= 'Military interference in rule of law and politics',
+        alt.Chart(eco).mark_bar(color='#ff0000').encode(
+            x= 'Size of Government:Q',
+            y= 'Military interference in rule of law and politics:Q',
         )
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
-    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
-             " On a large level, you can see the fluctuations for most countries but an indiviual level will showcase the overall freedom for countries, "+
-             "especially for middle eastern countries.")
+    st.write("The freedom to trade on an international level is extremely important to any country\'s economic freedom" +
+             'if they are limited in any capacity, it will be more difficult for them to procure items especially if there is an '
+             + "ongoing issue in the country itself. Here we can see if a country has either increased or decreased over time.")
     st.subheader("Freedom to trade internationally over time")
     alt_chart = (
-        alt.Chart(eco).mark_line(color='#ff0000').encode(
+        alt.Chart(eco).mark_bar(color='#ff0000').encode(
             x= 'Year:T',
             y= 'Freedom to trade internationally',
         )
@@ -117,37 +117,53 @@ with tab1:
     st.altair_chart(alt_chart, use_container_width=True)
 
 with tab2:
+    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
+             " On a large level, it is difficult to see the fluctuations for most countries but using a filter will help on an indiviual level, showcasing the overall freedom for countries. "+
+             "Looking at specific countries would be best for this chart as it will be best for comparison.")
     st.subheader("Economic Freedom Summary Index and Year")
     alt_chart = (
-        alt.Chart(eco).mark_bar(color='#ff0000').encode(
+        alt.Chart(eco).mark_line(color='#ff0000').encode(
             x= 'Year:T',
             y= 'Economic Freedom Summary Index',
-        )
-        .interactive()
-        )
-    st.altair_chart(alt_chart, use_container_width=True)
-    st.subheader("Size of Government and Military interference in rule of law and politics")
-    alt_chart = (
-        alt.Chart(eco).mark_bar(color='#ff0000').encode(
-            x= 'Size of Government',
-            y= 'Military interference in rule of law and politics',
+            color='ISO Code'
         )
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
+    st.write("Similarly to the bar chart, there is a large amalgmation of data that showcases each country Military to the size of the government"
+             + ". It is difficult to read when all the countries are selected but you can still see noticable dips for some countries. "
+             + "When filtered, it can help indicate what point in the government size was beneficial or not and how they adapted to the military\'s interference.")
+    
+    st.subheader("Size of Government and Military interference in rule of law and politics")
+    alt_chart = (
+        alt.Chart(eco).mark_line(color='#ff0000').encode(
+            x= 'Size of Government',
+            y= 'Military interference in rule of law and politics',
+            color='ISO Code'
+        )
+        .interactive()
+        )
+    st.altair_chart(alt_chart, use_container_width=True)
+
+    st.write("A country\'s ability to trade internationally has become incredibly important for any type of market at his point. " +
+             "If this ability to trade was weakened at any point, it could potentially have a direct causal effect on a country\'s " +
+             "overall economic freedom. Similarly to the previous line charts, it would be best to filter before using it so its not as cluttered over time.")
     st.subheader("Freedom to trade internationally over time")
     alt_chart = (
-        alt.Chart(eco).mark_bar(color='#ff0000').encode(
+        alt.Chart(eco).mark_line(color='#ff0000').encode(
             x= 'Year:T',
             y= 'Freedom to trade internationally',
+            color='ISO Code'
         )
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
 with tab3:
-    st.subheader("Economic Freedom Summary Index and Year")
+    st.write("This tab is specifically different compared to the others as its overall only going to be taking account of how many of that specific index occured"
+             + " at all in the dataset. This allows us to see on an overall what score was most common for all countries.")
+    st.subheader("Economic Freedom Summary Index")
     alt_chart = (
         alt.Chart(eco).mark_bar(color='#ff0000').encode(
             x= 'Economic Freedom Summary Index',
@@ -156,6 +172,9 @@ with tab3:
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
+
+    st.write("This tab is specifically different compared to the others as its overall only going to be taking account of how many of that specific military interference occured"
+             + " at all in the dataset. This allows us to see on an overall what score was most common for all countries.")
     st.subheader("Military interference in rule of law and politics")
     alt_chart = (
         alt.Chart(eco).mark_bar(color='#ff0000').encode(
@@ -166,7 +185,9 @@ with tab3:
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
-    st.subheader("Freedom to trade internationally over time")
+    st.write("This tab is specifically different compared to the others as its overall only going to be taking account of how many of that specific Freedom to trade internationally occured"
+             + " at all in the dataset. This allows us to see on an overall what score was most common for all countries.")
+    st.subheader("Freedom to trade internationally")
     alt_chart = (
         alt.Chart(eco).mark_bar(color='#ff0000').encode(
             x= 'Freedom to trade internationally',
@@ -176,35 +197,43 @@ with tab3:
         )
     st.altair_chart(alt_chart, use_container_width=True)
 with tab4:
+    st.write("A scatter plot showing all the Economic Freedom Index over time, showing the how similar they all are dotted next to each other. "+
+             "Similar to the line, you can see some noticable outliers in the data over time, signifyiing the a decrease or increase as time went on.")
     st.subheader("Economic Freedom Summary Index and Year")
     alt_chart = (
         alt.Chart(eco).mark_circle(color='#ff0000').encode(
             x= 'Year:T',
             y= 'Economic Freedom Summary Index',
+            color='ISO Code'
         )
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
+    st.write("A scatter plot showing the Size of Government over Military interference in rule of law and politics, referencing a lot of correlation in the data. "+
+             "Notiacably though, most countries with a large government size near the same level, have a similar military interference.")
     st.subheader("Size of Government and Military interference in rule of law and politics")
     alt_chart = (
         alt.Chart(eco).mark_circle(color='#ff0000').encode(
             x= 'Size of Government',
             y= 'Military interference in rule of law and politics',
+            color='ISO Code'
         )
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
+    st.write("A scatter plot showing the Freedom to trade internationally over year, showing trends of countries slowly losing or gaining the ability to trade internationally "+
+             "If you filter by any western category countries, then you can see a higher degree of freedom compared to eastern.")
     st.subheader("Freedom to trade internationally over time")
     alt_chart = (
         alt.Chart(eco).mark_circle(color='#ff0000').encode(
             x= 'Year:T',
             y= 'Freedom to trade internationally',
+            color='ISO Code'
         )
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
-
 
 #Display a Map
 # map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'

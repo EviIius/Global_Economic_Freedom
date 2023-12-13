@@ -13,7 +13,7 @@ import folium as f
 
 st.set_page_config(layout='wide')
 st.title("Global Economic Freedom")
-st.subheader("There are many other variables in the data so here is a page for you to explore specific ones yourself")
+st.subheader("Some other charts I created with the spare time in the project")
 st.write("Please select two variables for or any filters that you would like to look at:")
 
 #Data Reading and URL Linkage to repository
@@ -77,10 +77,10 @@ selected_x_var = st.selectbox('Please Select your X variable:',
 column_list, index=0, placeholder="Choose an option")
 selected_y_var = st.selectbox('Please Select your Y variable:', column_list, index=0, placeholder="Choose an option")
 
-tab1,tab2,tab3,tab4 = st.tabs(['Gradient Chart','Sorted Bar Chart', 'Histogram Chart', 'Scatter Chart'])
+tab1,tab2 = st.tabs(['Gradient Chart','Sorted Bar Chart'])
 
 with tab1:
-    st.write("hello")
+    st.write("Gradient overall I thought was neat to look at with this kind of data is it showed the area comparison.")
     gradient = alt.Chart(eco).mark_area(
     line={'color':'white'},
     color=alt.Gradient(
@@ -99,6 +99,7 @@ with tab1:
     st.altair_chart(gradient, use_container_width=True)
 
 with tab2:
+    st.write("Just a simple sorted bar graph")
     sort = alt.Chart(eco).mark_bar(color='#ff0000').encode(
     x= selected_x_var,
     y=alt.Y(selected_y_var).sort('-x')

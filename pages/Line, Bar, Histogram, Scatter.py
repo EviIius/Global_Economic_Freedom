@@ -1,5 +1,6 @@
 #Imports
 import pandas as pd
+import numpy as np
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -55,6 +56,7 @@ df3 = load_data(url3)
 #Creating a new dataframe different from original data
 eco = df
 eco['Year'] = pd.to_datetime(eco['Year'],format='%Y', errors='coerce')
+eco['No Filter'] = None
 eco.info()
 column_list = eco.columns.unique().tolist()
 
@@ -77,18 +79,29 @@ selected_x_var = st.selectbox('Please Select your X variable:',
 column_list, index=0, placeholder="Choose an option")
 selected_y_var = st.selectbox('Please Select your Y variable:', column_list, index=0, placeholder="Choose an option")
 
+
 tab1,tab2,tab3,tab4 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart', 'Scatter Chart'])
 
 with tab1:
-    st.write("Here you can create any Line Chart that you choose to better explore that data yourself")
-    alt_chart = (
+        if "visibility" not in st.session_state:
+            st.session_state.visibility = "visible"
+            st.session_state.disabled = False
+
+        st.checkbox("Disable Line Color Option", key="disabled")
+
+        color = st.selectbox('Please Select your Line Color variable:', column_list, index=69, placeholder="Choose an option", 
+                     label_visibility=st.session_state.visibility,
+        disabled=st.session_state.disabled)
+        st.write("Here you can create any Line Chart that you choose to better explore that data yourself")
+        alt_chart = (
         alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var}").mark_line(color='#ff0000').encode(
             x=selected_x_var,
         y=selected_y_var,
+        color= color
         )
         .interactive()
         )
-    st.altair_chart(alt_chart, use_container_width=True)
+        st.altair_chart(alt_chart, use_container_width=True)
 
 with tab2:
 
@@ -113,16 +126,25 @@ with tab3:
         )
     st.altair_chart(alt_chart, use_container_width=True)
 with tab4:
-   st.write("Here you can create any Scatter Plot that you choose to better explore that data yourself")
-   alt_chart = (
-        alt.Chart(eco, title=f"Scatter of {selected_x_var} and {selected_y_var}").mark_circle(color='#ff0000').encode(
+        if "visibility" not in st.session_state:
+            st.session_state.visibility = "visible"
+            st.session_state.disabled = False
+
+        st.checkbox("Disable Scatter Color Option", key="d")
+
+        color2 = st.selectbox('Please Select your Scatter Color variable:', column_list, index=69, placeholder="Choose an option", 
+                     label_visibility=st.session_state.visibility,
+        disabled=st.session_state.d)
+        st.write("Here you can create any Scatter Chart that you choose to better explore that data yourself")
+        alt_chart = (
+        alt.Chart(eco, title= f"Scatter Chart of {selected_x_var} and {selected_y_var}").mark_circle(color='#ff0000').encode(
             x=selected_x_var,
         y=selected_y_var,
+        color= color2
         )
         .interactive()
         )
-   st.altair_chart(alt_chart, use_container_width=True)
-
+        st.altair_chart(alt_chart, use_container_width=True)
 
 #Display a Map
 map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
