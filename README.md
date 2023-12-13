@@ -4,9 +4,10 @@
 ## Background Information
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Fraser_Institute_logo.svg/1200px-Fraser_Institute_logo.svg.png" alt="drawing" width="200" height = "200"/>
 
-Fraser Institute 
+Fraser Institute is a Canadian Organization that improve the quality of life for Canadians, their families, and future generations by studying, measuring, and broadly communicating the effects of government policies, entrepreneurship, and choice on their well-being. However this is not limited to their country alone as
+they obtain information yearly from many different countries to showcase the different types of attributes that make up Economic Freedom. In their own words "The cornerstones of economic freedom are (1) personal choice, (2) voluntary exchange coordinated by markets, (3) freedom to enter and compete in markets, and (4) protection of persons and their property from aggression by others."
 
-[Economic-Freedom-Data](https://www.fraserinstitute.org/economic-freedom/dataset?geozone=world&page=dataset&min-year=2003&max-year=2021&filter=1&date-type=range)
+Here I have the link to my data where it takes all of the Economic Freedom from 2003 - 2021:[Economic-Freedom-Data](https://www.fraserinstitute.org/economic-freedom/dataset?geozone=world&page=dataset&min-year=2003&max-year=2021&filter=1&date-type=range)
 
 ## Video from the Fraser Institute for more information on Economic Freedom and its benefits
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/3_HnZa2XSrc/0.jpg)](https://www.youtube.com/watch?v=3_HnZa2XSrc)
