@@ -77,7 +77,7 @@ selected_x_var = st.selectbox('Please Select your X variable:',
 column_list, index=0, placeholder="Choose an option")
 selected_y_var = st.selectbox('Please Select your Y variable:', column_list, index=0, placeholder="Choose an option")
 
-tab1,tab2,tab3,tab4 = st.tabs(['Gradient Chart','Pie Chart', 'Histogram Chart', 'Scatter Chart'])
+tab1,tab2,tab3,tab4 = st.tabs(['Gradient Chart','Sorted Bar Chart', 'Histogram Chart', 'Scatter Chart'])
 
 with tab1:
     st.write("hello")
@@ -111,7 +111,7 @@ map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.jso
 countries = alt.topo_feature(map_data, 'countries')
 
 background = alt.Chart(countries).mark_geoshape(
-    fill='#CBC3E3',
+    fill='#808080',
     stroke='white',
     tooltip='Countries'
 ).project(

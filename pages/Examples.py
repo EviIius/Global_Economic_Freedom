@@ -77,7 +77,8 @@ tab1,tab2,tab3,tab4 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart', 'Sca
 
 with tab1:
     st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
-             "On a large level, you can see the fluctuations for most countries but")
+             " On a large level, you can see the fluctuations for most countries but an indiviual level will showcase the overall freedom for countries, "+
+             "especially for middle eastern countries.")
     st.subheader("Economic Freedom Summary Index and Year")
     alt_chart = (
         alt.Chart(eco).mark_line(color='#ff0000').encode(
@@ -87,6 +88,11 @@ with tab1:
         .interactive()
         )
     st.altair_chart(alt_chart, use_container_width=True)
+
+    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
+             " On a large level, you can see the fluctuations for most countries but an indiviual level will showcase the overall freedom for countries, "+
+             "especially for middle eastern countries.")
+    
     st.subheader("Size of Government and Military interference in rule of law and politics")
     alt_chart = (
         alt.Chart(eco).mark_line(color='#ff0000').encode(
@@ -97,6 +103,10 @@ with tab1:
         )
     st.altair_chart(alt_chart, use_container_width=True)
 
+    st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
+             " On a large level, you can see the fluctuations for most countries but an indiviual level will showcase the overall freedom for countries, "+
+             "especially for middle eastern countries.")
+    
     st.subheader("Freedom to trade internationally over time")
     alt_chart = (
         alt.Chart(eco).mark_line(color='#ff0000').encode(

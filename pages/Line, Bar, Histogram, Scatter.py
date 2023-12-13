@@ -80,7 +80,7 @@ selected_y_var = st.selectbox('Please Select your Y variable:', column_list, ind
 tab1,tab2,tab3,tab4 = st.tabs(['Line Chart','Bar Chart', 'Histogram Chart', 'Scatter Chart'])
 
 with tab1:
-    st.write("hello")
+    st.write("Here you can create any Line Chart that you choose to better explore that data yourself")
     alt_chart = (
         alt.Chart(eco, title= f"Line Chart of {selected_x_var} and {selected_y_var}").mark_line(color='#ff0000').encode(
             x=selected_x_var,
@@ -92,7 +92,7 @@ with tab1:
 
 with tab2:
 
-    st.write("hello")
+    st.write("Here you can create any Bar Graph that you choose to better explore that data yourself")
     alt_chart = (
         alt.Chart(eco, title=f"Bar of {selected_x_var} and {selected_y_var}").mark_bar(color='#ff0000').encode(
             x=selected_x_var,
@@ -103,7 +103,7 @@ with tab2:
     st.altair_chart(alt_chart, use_container_width=True)
 
 with tab3:
-    st.write("hello")
+    st.write("Here you can create any Histogram that you choose to better explore that data yourself")
     alt_chart = (
         alt.Chart(eco, title=f"Histogram of {selected_x_var} and the count of each value").mark_bar(color='#ff0000').encode(
             x=selected_x_var,
@@ -113,7 +113,7 @@ with tab3:
         )
     st.altair_chart(alt_chart, use_container_width=True)
 with tab4:
-   st.write("hello")
+   st.write("Here you can create any Scatter Plot that you choose to better explore that data yourself")
    alt_chart = (
         alt.Chart(eco, title=f"Scatter of {selected_x_var} and {selected_y_var}").mark_circle(color='#ff0000').encode(
             x=selected_x_var,
@@ -130,7 +130,7 @@ map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.jso
 countries = alt.topo_feature(map_data, 'countries')
 
 background = alt.Chart(countries).mark_geoshape(
-    fill='#CBC3E3',
+    fill='#808080',
     stroke='white',
     tooltip='Countries'
 ).project(

@@ -86,21 +86,25 @@ if indvidual_country:
 #     st.stop()
 
 st.markdown('''
-            Hello joey-kun :)
+            The following is data gathered from the Fraiser Institute, 
+            a Canadian organization that has worked to gather the data of Economic 
+            Freedom from many countries around the world. Our primary focus is to display how the economic freedom of a country is
+            important to its ability to thrive over time. Some factors include the Size of the Government, Market Openness,
+            and Tax Compliance. All of these could represent a countries freedom to buy or sell and affect their overall economy.
             ''')
 
 #Displaying Dataframe
-st.header("A dataframe containing the primary information of the all the countries different metrics along with latitude and longitude")
+st.header("A dataframe containing the primary information of the all the countries different metrics along with their latitude and longitude:")
 st.dataframe(eco)
 
 #Display a Map
 map_data = 'https://cdn.jsdelivr.net/npm/vega-datasets@2.7.0/data/world-110m.json'
 
-st.header("Interactable map that can show you country groupings")
+st.header("A map that will change based off the filters you select, that way you could see multiple countries or groupings:")
 countries = alt.topo_feature(map_data, 'countries')
 
 background = alt.Chart(countries).mark_geoshape(
-    fill='#CBC3E3',
+    fill='#808080',
     stroke='white',
     tooltip='Countries'
 ).project(
