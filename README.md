@@ -19,7 +19,7 @@ they obtain information yearly from many different countries to showcase the dif
 
 
 ## Link to the app
-The final version of the app will always be  up on Streamlit for anyone's viewing pleasure.
+The final version of the app will always be  up on Streamlit for anyone's viewing pleasure:
 [Global Economic Freedom](https://global-economic-freedom.streamlit.app/ 'Global Economic Freedom')
 
 
