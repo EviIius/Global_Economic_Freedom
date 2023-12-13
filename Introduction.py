@@ -61,7 +61,7 @@ eco.info()
 st.write("# Global Economic Freedom")
 
 #Sidebar
-st.sidebar.write("Here are some functions that wuill help make it easier to visualize the data on an individual level.")
+st.sidebar.write("Here are some functions that will help make it easier to visualize the data on an individual level.")
 #Country Group Filter
 
 regions = st.sidebar.multiselect("Country Category", eco['Country (group)'].unique())
