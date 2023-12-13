@@ -5,6 +5,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Fraser_Institute_logo.svg/1200px-Fraser_Institute_logo.svg.png" alt="drawing" width="200" height = "200"/>
 [Fraser Institute](https://www.fraserinstitute.org/economic-freedom/dataset?geozone=world&page=dataset&min-year=2003&max-year=2021&filter=1&date-type=range)
 
+## Video from the Fraser Institute for more information on Economic Freedom
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/HnZa2XSrc/0.jpg)](https://www.youtube.com/watch?v=HnZa2XSrc)
+
 
 ## Link to the app
 The final version of the app will always be  up on Streamlit for anyones viewing pleasure.
