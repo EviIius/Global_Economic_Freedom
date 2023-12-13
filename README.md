@@ -32,6 +32,13 @@ from geopandas import GeoDataFrame
 import folium as f
 ```
 
-## Download the Introduction file
+This will already be in the requirements
+
+## Run the Introduction.py file
+- Open your terminal in your virtual enviorment
+- Type the following line of code and click enter:
+```
+streamlit run Introduction.py
+```
 
 
