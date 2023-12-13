@@ -6,6 +6,7 @@
 python -m venv <name_of_virtualenv>
 
 ## Import all the required packages
+```
 #Imports
 import pandas as pd
 import streamlit as st
@@ -17,6 +18,8 @@ from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
 import folium as f
+
+```
 
 ##
 
