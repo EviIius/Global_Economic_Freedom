@@ -1,7 +1,7 @@
 # Global Economic Freedom
 
 ## Background Information
-![Fraiser Institute](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Fraser_Institute_logo.svg/1200px-Fraser_Institute_logo.svg.png)
+![Fraiser Institute](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Fraser_Institute_logo.svg/1200px-Fraser_Institute_logo.svg.png) width = "200" height = "100"
 ## Link to the app
 The final version of the app will always be  up on Streamlit for anyones viewing pleasure.
 [Global Economic Freedom] (https://global-economic-freedom.streamlit.app/ 'Global Economic Freedom')
