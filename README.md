@@ -12,8 +12,11 @@ they obtain information yearly from many different countries to showcase the dif
     - (3) freedom to enter and compete in markets
     - (4) protection of persons and their property from aggression by others."
 - The overall goal is to showcase how the economic freedom of a country can fluctuate from internal and external factors over time, showcasing growth and degredation over different types of visualizations.
-- Here I have the link to my data where it takes all of the Economic Freedom from 2003 - 2021:
+- To be informative of the growth of other countries is important especially in the modern world, showing how free a country is able to contribute on a global scale and their progress is why I created this app.
+- Here I have the link to my data where it takes all of the Economic Freedom from 2003 - 2021 and merged with two other datasets to get groupings and longitude and latitude:
     - [Economic-Freedom-Data](https://www.fraserinstitute.org/economic-freedom/dataset?geozone=world&page=dataset&min-year=2003&max-year=2021&filter=1&date-type=range)
+    - [Countries](https://developers.google.com/public-data/docs/canonical/countries_csv)
+    - [Countrys (group)](https://github.com/EviIius/Global_Economic_Freedom/blob/main/datacsvs/Countries%20by%20category.csv)
 
 ## Video from the Fraser Institute for more information on Economic Freedom and its benefits
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/3_HnZa2XSrc/0.jpg)](https://www.youtube.com/watch?v=3_HnZa2XSrc)
