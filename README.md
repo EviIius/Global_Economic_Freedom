@@ -44,24 +44,24 @@ import geopandas as gpd
 from geopandas import GeoDat
 ```
 
-This will already be in the requirements
+This will already be in the requirements.
 
 ## Run the Introduction.py file
-- Open your terminal in your virtual enviorment
+- Open your terminal in your virtual enviorment.
 - Type the following line of code and click enter:
 ```
 streamlit run Introduction.py
 ```
-- It will then take you to your defualt browser and display the app and its features
+- It will then take you to your defualt browser and display the app and its features.
 
 ## App Information
 - There are four pages that are introduced to you:
-    - Introduction: A page that will show off the dataframe and the amount of countries via a map
-    - Examples: Some variables and visualizations that are important 
-    - Line, Bar, Histogram, Scatter: A page with fully customizable variables of your choosing as well as a map to show what filters are selected
-    - Other Charts: A page I threw together with some other charts that is similar to the previous one
+    - Introduction: A page that will show off the dataframe and the amount of countries via a map.
+    - Examples: Some variables and visualizations that are important .
+    - Line, Bar, Histogram, Scatter: A page with fully customizable variables of your choosing as well as a map to show what filters are selected.
+    - Other Charts: A page I threw together with some other charts that is similar to the previous one.
 - All pages have two filters, Indiviual Country for specifics and Country group based on denomination, these will be on the sidebar of the first two pages and above the X and Y variables selectboxes on the last two.
-- There is a large amount of data ranging from 2003 - 2021 so it will overall be easier to filter by specifics to get a better outlook on the variables
+- There is a large amount of data ranging from 2003 - 2021 so it will overall be easier to filter by specifics to get a better outlook on the variables.
 
 
 ## Further Information About Economic Freedom

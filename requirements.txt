@@ -1,10 +1,8 @@
 pandas
+numpy
 streamlit
 pandas
 altair
 matplotlib
 shapely
 geopandas
-geopandas
-folium
-vega_datasets

@@ -1,5 +1,6 @@
 #Imports
 import pandas as pd
+import numpy as np
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -8,8 +9,6 @@ import matplotlib.pyplot as plt
 from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
-import folium as f
-# from vega_datasets import data
 
 st.set_page_config(layout='wide')
 st.title("Global Economic Freedom")
