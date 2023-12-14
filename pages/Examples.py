@@ -118,7 +118,8 @@ with tab1:
 with tab2:
     st.write("Here is Economic Freedom over time, the freedom of a countries economy is very important." + 
              " On a large level, it is difficult to see the fluctuations for most countries but using a filter will help on an indiviual level, showcasing the overall freedom for countries. "+
-             "Looking at specific countries would be best for this chart as it will be best for comparison.")
+             "Looking at specific countries would be best for this chart as it will be best for comparison. "
+             + "These values showcase just how a country can progress over time and increase their freedom with diminishing returns, and potenially harmful ones.")
     st.subheader("Economic Freedom Summary Index and Year")
     alt_chart = (
         alt.Chart(eco).mark_line(color='#ff0000').encode(
@@ -132,7 +133,9 @@ with tab2:
 
     st.write("Similarly to the bar chart, there is a large amalgmation of data that showcases each country Military to the size of the government"
              + ". It is difficult to read when all the countries are selected but you can still see noticable dips for some countries. "
-             + "When filtered, it can help indicate what point in the government size was beneficial or not and how they adapted to the military\'s interference.")
+             + "When filtered, it can help indicate what point in the government size was beneficial or not and how they adapted to the military\'s interference. " 
+             + "In eastern countries, military is a very important aspect for a lot of people, whether it be family or security. "
+             + "However there have been cases in the past where if a military interferes too much, it can affect the country as a whole.")
     
     st.subheader("Size of Government and Military interference in rule of law and politics")
     alt_chart = (
@@ -147,7 +150,8 @@ with tab2:
 
     st.write("A country\'s ability to trade internationally has become incredibly important for any type of market at his point. " +
              "If this ability to trade was weakened at any point, it could potentially have a direct causal effect on a country\'s " +
-             "overall economic freedom. Similarly to the previous line charts, it would be best to filter before using it so its not as cluttered over time.")
+             "overall economic freedom. Similarly to the previous line charts, it would be best to filter before using it so its not as cluttered over time." +
+             " The United States for example is heavily dependent on trade for our economy, so if our freedom to trade was diminished in any capacity, it would be definetly hurt our economic freedom.")
     st.subheader("Freedom to trade internationally over time")
     alt_chart = (
         alt.Chart(eco).mark_line(color='#ff0000').encode(
