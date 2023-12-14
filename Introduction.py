@@ -90,8 +90,8 @@ st.markdown('''
             a Canadian organization that has worked to gather the data of Economic 
             Freedom from many countries around the world. Our primary focus is to display how the economic freedom of a country is
             important to its ability to thrive over time and if a higher Economic Freedom means less potential poverty. Some factors include the Size of the Government, Market Openness,
-            and Tax Compliance. All of these could represent a countries freedom to buy or sell and affect their overall economy and help explain to people just how important"
-            + " a persons own indviduallity is heavily reliant on freedom and so is a countries ability to survive.
+            and Tax Compliance. All of these could represent a countries freedom to buy or sell and affect their overall economy and help explain to people just how important 
+            a persons own indviduallity is heavily reliant on freedom and so is a countries ability to survive.
             ''')
 
 #Displaying Dataframe

@@ -11,6 +11,7 @@ they obtain information yearly from many different countries to showcase the dif
     - (2) voluntary exchange coordinated by markets
     - (3) freedom to enter and compete in markets
     - (4) protection of persons and their property from aggression by others."
+- The overall goal is to showcase how the economic freedom of a country can fluctuate from internal and external factors over time, showcasing growth and degredation over different types of visualizations.
 - Here I have the link to my data where it takes all of the Economic Freedom from 2003 - 2021:
     - [Economic-Freedom-Data](https://www.fraserinstitute.org/economic-freedom/dataset?geozone=world&page=dataset&min-year=2003&max-year=2021&filter=1&date-type=range)
 
@@ -62,6 +63,7 @@ streamlit run Introduction.py
     - Other Charts: A page I threw together with some other charts that is similar to the previous one.
 - All pages have two filters, Indiviual Country for specifics and Country group based on denomination, these will be on the sidebar of the first two pages and above the X and Y variables selectboxes on the last two.
 - There is a large amount of data ranging from 2003 - 2021 so it will overall be easier to filter by specifics to get a better outlook on the variables.
+- I selected variables that I thought showcased the best of the visualizations but that many not be the case, if you think one of the other charts would be better, use pages Line, Bar, Histogram, Scatter, and Other Charts to make your visualizations.
 
 
 ## Further Information About Economic Freedom
