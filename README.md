@@ -61,7 +61,7 @@ streamlit run Introduction.py
     - Line, Bar, Histogram, Scatter: A page with fully customizable variables of your choosing as well as a map to show what filters are selected
     - Other Charts: A page I threw together with some other charts that is similar to the previous one
 - All pages have two filters, Indiviual Country for specifics and Country group based on denomination, these will be on the sidebar of the first two pages and above the X and Y variables selectboxes on the last two.
-- There is a large amount of data ranging from 2001 - 2021 so it will overall be easier to filter by specifics to get a better outlook on the variables
+- There is a large amount of data ranging from 2003 - 2021 so it will overall be easier to filter by specifics to get a better outlook on the variables
 
 
 ## Further Information About Economic Freedom
