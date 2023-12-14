@@ -15,7 +15,7 @@ they obtain information yearly from many different countries to showcase the dif
 - To be informative of the growth of other countries is important especially in the modern world, showing how free a country is able to contribute on a global scale and their progress is why I created this app.
 
 ## Data Abstraction
-- Here I have the link to my data where it takes all of the Economic Freedom from 2003 - 2021 and merged with two other datasets to get groupings and longitude and latitude:
+- Here I have the link to my data where it takes all of the Economic Freedom from 2003 - 2021 and merged with two other public datasets to get groupings and longitude and latitude:
     - [Economic-Freedom-Data](https://www.fraserinstitute.org/economic-freedom/dataset?geozone=world&page=dataset&min-year=2003&max-year=2021&filter=1&date-type=range)
     - [Countries](https://developers.google.com/public-data/docs/canonical/countries_csv)
     - [Countrys (group)](https://github.com/EviIius/Global_Economic_Freedom/blob/main/datacsvs/Countries%20by%20category.csv)
