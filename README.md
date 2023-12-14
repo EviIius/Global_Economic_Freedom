@@ -67,8 +67,9 @@ streamlit run Introduction.py
 - All pages have two filters, Indiviual Country for specifics and Country group based on denomination, these will be on the sidebar of the first two pages and above the X and Y variables selectboxes on the last two.
 - There is a large amount of data ranging from 2003 - 2021 so it will overall be easier to filter by specifics to get a better outlook on the variables.
 - I selected variables that I thought showcased the best of the visualizations but that many not be the case, if you think one of the other charts would be better, use pages Line, Bar, Histogram, Scatter, and Other Charts to make your visualizations.
-
-
+## Future Plans
+- I'd like to make a predictive model to see how the statistically significant these variables would be to the target: Economic Freedom Summary Index.
+- Potentially make a time-series analysis on how the countries progressed.s
 ## Further Information About Economic Freedom
 - [Economic Freedom: Toward a Theory of Measurement](https://books.google.com/books?id=T-lAnvB8r9QC&printsec=frontcover#v=onepage&q&f=false)
 - [The concept and measurement of economic freedom](https://www.sciencedirect.com/science/article/pii/S0176268003000077?casa_token=z8NnHG3SHIMAAAAA:HfISf-LCoX4qlLCDTxVvENVC2tQkBNK-Z2ViPruSWG59SpInxU1Q1hMP_JM0TVVKZduvXpv8qIQ)
